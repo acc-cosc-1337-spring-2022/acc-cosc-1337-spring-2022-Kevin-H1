@@ -1,6 +1,62 @@
 #include "decisions.h"
 //write include statement for decisions header
 
+//Homework functions
+std::string get_letter_grade_using_if(int grade)
+{
+	if(grade >= 90 && grade <= 100)
+	{
+		return "A";
+	}
+	else if(grade >= 80 && grade <=89)
+	{
+		return "B";
+	}
+	else if(grade >= 70 && grade <=79)
+	{
+		return "C";
+	}
+	else if(grade >= 60 && grade <=69)
+	{
+		return "D";
+	}
+	else if(grade >= 0 && grade <= 59)
+	{
+		return "F";
+	}
+	else
+	{
+		return "Number is out of range";
+	}
+}
+std::string get_letter_grade_using_switch(int grade)
+{
+	std::string returnVal;
+	int checks = grade/10;
+	switch(checks)
+	{
+	case 9 ... 10:
+		returnVal = "A";
+		break; 
+	case 8:
+		returnVal = "B";
+		break;
+	case 7:
+		returnVal = "C";
+		break;
+	case 6:
+		returnVal = "D";
+		break;
+	case 0 ... 5:
+		returnVal = "F";
+		break;
+	default:
+		returnVal = "Number is out of range";
+	}
+	return returnVal;
+}
+
+/*
 //Write code for function get_grade_points that accepts a string letter_grade and returns 
 //the grade_points for as follows:
 //given grade "A" returns 4
@@ -45,4 +101,4 @@ double calculate_gpa(int credit_hours, double credit_points)
 {
 	return credit_points / credit_hours;
 }
-
+*/
