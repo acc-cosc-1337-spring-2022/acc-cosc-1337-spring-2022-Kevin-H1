@@ -42,14 +42,6 @@ void TicTacToe::mark_board(int position)
     set_next_player();
 }
 
-void TicTacToe::display_board()const
-{
-    for(int i=0; i < 9; i+=3)
-    {
-        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
-    }
-}
-
 void TicTacToe::set_next_player()
 {
     if(player == "X")
@@ -181,3 +173,25 @@ void TicTacToe::set_winner()
     }
     
 }
+
+
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    for(int i=0; i < 9; i+=3)
+    {
+        out<<game.pegs[i]<<"|"<<game.pegs[i+1]<<"|"<<game.pegs[i+2]<<"\n";
+    }
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    int pos;
+
+    cout<<"Enter position [1-9]";
+    in>>pos;
+    game.mark_board(pos);
+    return in;
+}
+
+
