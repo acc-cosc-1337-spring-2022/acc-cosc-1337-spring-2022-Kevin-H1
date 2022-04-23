@@ -1,21 +1,25 @@
 //cpp
 #include "tic_tac_toe_manager.h"
 
-using std::cout; using std::string;
 
 
-void TicTacToeManager::save_game(TicTacToe b)
+using std::cout; using std::string; using std::unique_ptr; using std::make_unique;
+
+
+void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
 {
-    games.push_back(b);
-    update_winner_count(b.get_winner());
+    update_winner_count(b->get_winner());
+    games.push_back(std::move(b));
+    //games.push_back(b);
+    //update_winner_count(b.get_winner());
 }
 
 //works?
 std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
 {
-    for(auto var: manager.games)
+    for(auto& var: manager.games)
     {
-        out<<var<<"\n";
+        out<<*var<<"\n";
     }
     return out;
 }
