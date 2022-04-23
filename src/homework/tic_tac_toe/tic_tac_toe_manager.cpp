@@ -52,3 +52,13 @@ void TicTacToeManager::update_winner_count(std::string winner)
         ties +=1;
     }
 }
+
+void TicTacToeManager::update_winner_totals(std::vector<std::unique_ptr<TicTacToe>> board_games)
+{
+    for(auto& b: board_games)
+    {
+
+        update_winner_count(b->get_winner());
+
+    }
+}

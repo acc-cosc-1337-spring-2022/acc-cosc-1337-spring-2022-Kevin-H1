@@ -2,13 +2,15 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include "tic_tac_toe_manager.h"
+#include"tic_tac_toe_data.h"
 #include "string"
 
 using std::cout; using std::cin; using std::string; using std::unique_ptr; using std::make_unique;
 
 int main() 
 {	
-	TicTacToeManager gameManager;
+	TicTacToeData data;
+	TicTacToeManager gameManager(data);
 	unique_ptr<TicTacToe> game;
 	string first_player;
 	char choice;
@@ -101,7 +103,9 @@ int main()
 
 
 	cout<<gameManager;
+	
 
+	
 	gameManager.get_winner_total(o,w,t);
 	return 0;
 }

@@ -10,6 +10,7 @@ class TicTacToe4: public TicTacToe
 public:
     //Constructor
     TicTacToe4(): TicTacToe(4){}
+    TicTacToe4(std::vector<std::string> p, std::string win): TicTacToe(p, win){}
 
 private:
     bool check_column_win()override;

@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <memory>
 
 
 #ifndef TIC_TAC_TOE_H
@@ -16,6 +17,8 @@ friend std::istream& operator>>(std::istream& in, TicTacToe& game);
 public:
     //constructor
     TicTacToe(int size): pegs(size * size, " "){}
+    TicTacToe(std::vector<std::string> p, std::string win): pegs(p), winner(win){}
+    
 
 
     bool game_over();
@@ -24,6 +27,9 @@ public:
 
     std::string get_player()const{return player;}    
     std::string get_winner()const{return winner;}
+
+    std::vector<std::string> get_pegs()const{return pegs;}
+
 
 protected:
     std::vector<std::string> pegs;
